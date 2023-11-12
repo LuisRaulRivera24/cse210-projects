@@ -1,7 +1,10 @@
 using System;
+using System.Dynamic;
 using System.IO;
 using System.IO.Enumeration;
+using System.Security.Cryptography.X509Certificates;
 
+// TO EXCEED REQUIREMENTS, ALL ENTRIES ARE NOW SERIALIZED INTO THE JSON FORMAT AND WHEN LOADED THEY ARE DESERIALIZED FROM JSON FORMAT.
 class Program
 {
     static void Main(string[] args)
