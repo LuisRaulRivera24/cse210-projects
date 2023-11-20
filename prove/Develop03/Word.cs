@@ -1,3 +1,5 @@
+using System.Text;
+
 public class Word
 {
     // Here are my attributes
@@ -7,24 +9,30 @@ public class Word
     // Here are my constructors
     public Word(string text)
     {
-
+        _text = text;
+        _isHidden = false;
     }
 
     // Here are my methods
     public void Hide()
     {
+        int textLength = _text.Length;
+        _text = String.Concat(Enumerable.Repeat("_", textLength));
 
+        _isHidden = true;
     }
-    public void Show()
-    {
 
-    }
+    // I did not need to use the "Show" method
+    // public void Show()
+    // {
+    //     _isHidden = false;
+    // }
     public bool IsHidden()
     {
-        return true;
+        return _isHidden;
     }
     public string GetDisplayText()
     {
-        return "";
+        return _text;
     }
 }
