@@ -3,10 +3,17 @@ public class ReflectingActivity : Activity
     private List<string> _prompts;
     private List<string> _questions;
 
+    private List<string> _usedPrompts;
+    private List<string> _usedQuestions;
+
     public ReflectingActivity(string name, string description)
     {
         _name = name;
         _description = description;
+
+        _usedPrompts = new List<string>();
+        _usedQuestions = new List<string>();
+
 
         _prompts = new List<string>{"Think of a time when you stood up for someone else.",
                                     "Think of a time when you did something really difficult.",
@@ -51,7 +58,7 @@ public class ReflectingActivity : Activity
             Console.WriteLine();
         }
 
-        Console.WriteLine("\n");
+        Console.WriteLine();
         DisplayEndingMessage();
 
     }
@@ -59,6 +66,7 @@ public class ReflectingActivity : Activity
     {
         Random random = new Random();
         int numberIndex = random.Next(0, _prompts.Count);
+        _usedPrompts.Add(_prompts[numberIndex]);
 
         return _prompts[numberIndex];
     }
@@ -66,15 +74,38 @@ public class ReflectingActivity : Activity
     {
         Random random = new Random();
         int numberIndex = random.Next(0, _questions.Count);
+        _usedQuestions.Add(_questions[numberIndex]);
         
         return _questions[numberIndex];
     }
     private void DisplayPrompt()
     {
-        Console.WriteLine($" --- {GetRandomPrompt()} ---\n");
+        string randomPrompt = GetRandomPrompt();
+        Console.WriteLine($" --- {randomPrompt} ---\n");
+
+        _prompts.Remove(randomPrompt);
+
+        if (!_prompts.Any())
+        {
+            foreach (string prompt in _usedPrompts)
+            {
+                _prompts.Add(prompt);
+            }
+        }
     }
     private void DisplayQuestions()
     {
-        Console.Write($"> {GetRandomQuestion()}");
+        string randomQuestion = GetRandomQuestion();
+        Console.Write($"> {randomQuestion}");
+
+        _questions.Remove(randomQuestion);
+
+        if (!_questions.Any())
+        {
+            foreach (string question in _usedQuestions)
+            {
+                _questions.Add(question);
+            }
+        }
     }
 }

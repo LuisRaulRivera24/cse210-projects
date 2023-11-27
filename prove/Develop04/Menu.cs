@@ -7,6 +7,20 @@ public class Menu
 
     public void DisplayMenu()
     {
+        BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", """
+                                                                            relax by walking you through breathing in and out slowly.
+                                                                            Clear your mind and focus on your breathing.
+                                                                            """);
+
+        ReflectingActivity reflectingActivity = new ReflectingActivity("Reflecting Activity", """
+                                                                                reflect on times in your life when you have shown strength and resilience.
+                                                                                This will help you recognize the power you have and how you can use it in other aspects of your life.
+                                                                                """);
+                                                                                
+        ListingActivity listingActivity = new ListingActivity("Listing Activity", """
+                                                                      reflect on the good things in your life by having you list as many things as you can in a certain area.
+                                                                      """);
+
         while (_meditating != "finished")
         {
             Console.Write("""
@@ -23,27 +37,18 @@ public class Menu
             if (_menuOption == 1)
             {
                 Console.Clear();
-                BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", """
-                                                                            relax by walking you through breathing in and out slowly.
-                                                                            Clear your mind and focus on your breathing.
-                                                                            """);
                 breathingActivity.DisplayStartingMessage();
                 breathingActivity.Run();
             }
             else if (_menuOption == 2)
             {
                 Console.Clear();
-                ReflectingActivity reflectingActivity = new ReflectingActivity("Reflecting Activity", """
-                                                                                reflect on times in your life when you have shown strength and resilience.
-                                                                                This will help you recognize the power you have and how you can use it in other aspects of your life.
-                                                                                """);
                 reflectingActivity.DisplayStartingMessage();
                 reflectingActivity.Run();
             }
             else if (_menuOption == 3)
             {
                 Console.Clear();
-                ListingActivity listingActivity = new ListingActivity("Listing Activity", "reflect on the good things in your life by having you list as many things as you can in a certain area.");
                 listingActivity.DisplayStartingMessage();
                 listingActivity.Run();   
             } 

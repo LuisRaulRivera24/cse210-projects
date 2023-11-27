@@ -2,13 +2,15 @@ using System.Net;
 
 public class ListingActivity : Activity
 {
-    private int _count;
     private List<string> _prompts;
+    private List<string> _usedPrompts;
 
     public ListingActivity(string name, string description)
     {
         _name = name;
         _description = description;
+
+        _usedPrompts = new List<string>();
 
         _prompts = new List<string> {"Who are people that you appreciate?",
                                      "What are personal strengths of yours?",
@@ -43,14 +45,27 @@ public class ListingActivity : Activity
 
         Console.WriteLine($"You listed {myUserList.Count} items!");
         
-        Console.WriteLine("\n");
+        Console.WriteLine();
         DisplayEndingMessage();
     }
     private void GetRandomPrompt()
     {
         Random random = new Random();
         int numberIndex = random.Next(0, _prompts.Count);
-        Console.WriteLine($" --- {_prompts[numberIndex]} ---");
+        string randomPrompt = _prompts[numberIndex];
+        _usedPrompts.Add(randomPrompt);
+
+        Console.WriteLine($" --- {randomPrompt} ---");
+
+        _prompts.Remove(randomPrompt);
+
+        if (!_prompts.Any())
+        {
+            foreach (string prompt in _usedPrompts)
+            {
+                _prompts.Add(prompt);
+            }
+        }
     }
     private List<string> GetListFromUser()
     {
