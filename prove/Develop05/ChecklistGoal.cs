@@ -36,7 +36,7 @@ public class ChecklistGoal : Goal
     }
     public override string GetStringRepresentation()
     {
-        if (_target == _amountCompleted)
+        if (_amountCompleted >= _target)
         {
             return $"[X] {_shortName} ({_description}) --- Currently completed: {_amountCompleted}/{_target}";
         }
