@@ -214,7 +214,7 @@ public class GoalManager
 
     private void CreateGoals(string name, string restOfGoal)
     {
-        string[] parts = restOfGoal.Split(",");
+        string[] parts = restOfGoal.Split("++");
 
         if (name == "SimpleGoal")
         {

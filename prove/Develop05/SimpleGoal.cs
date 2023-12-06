@@ -33,6 +33,6 @@ public class SimpleGoal : Goal
     }
     public override string GetOutputFormat()
     {
-        return $"{_classType}:{_shortName},{_description},{_points},{_isComplete}";
+        return $"{_classType}:{_shortName}++{_description}++{_points}++{_isComplete}";
     }
 }

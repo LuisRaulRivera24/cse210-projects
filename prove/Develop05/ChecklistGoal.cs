@@ -47,6 +47,6 @@ public class ChecklistGoal : Goal
     }
     public override string GetOutputFormat()
     {
-        return $"{_classType}:{_shortName},{_description},{_points},{_bonus},{_target},{_amountCompleted}";
+        return $"{_classType}:{_shortName}++{_description}++{_points}++{_bonus}++{_target}++{_amountCompleted}";
     }
 }

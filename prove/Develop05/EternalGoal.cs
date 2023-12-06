@@ -15,6 +15,6 @@ public class EternalGoal : Goal
     }
     public override string GetOutputFormat()
     {
-        return $"{_classType}:{_shortName},{_description},{_points}";
+        return $"{_classType}:{_shortName}++{_description}++{_points}";
     }
 }
