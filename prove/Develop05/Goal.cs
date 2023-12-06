@@ -20,7 +20,7 @@ public class Goal
     [JsonPropertyName("Points")]
     public int _points {get; set;}
 
-    public Goal(string name, string description, int points)
+    protected Goal(string name, string description, int points)
     {
         _shortName = name;
         _description = description;
