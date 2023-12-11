@@ -6,7 +6,9 @@ public class Order
     public Order(List<string> productList, string personName, string street, string city, string stateOrProvince, string zipcode, string country)
     {
         _products = new List<Product>();
+        Console.WriteLine("Shipping Label:\n");
         ShippingLabel(personName, street, city, stateOrProvince, zipcode, country);
+        Console.WriteLine("Packing Label:\n");
         PackingLabel(productList);
     }
     private void PackingLabel(List<string> productList)
