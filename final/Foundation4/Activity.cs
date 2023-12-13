@@ -6,7 +6,7 @@ public class Activity
     private int _length;
     private string _activityType;
 
-    public Activity(string date, int length)
+    protected Activity(string date, int length)
     {
         _date = date;
         _length = length;
