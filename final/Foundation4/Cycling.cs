@@ -11,7 +11,7 @@ public class Cycling : Activity
     protected override double CalculateDistance()
     {
         int lngth = GetLength();
-        double distance = _speed * lngth;
+        double distance = _speed * (lngth / 60);
 
         return Math.Round(distance, 2);
     }

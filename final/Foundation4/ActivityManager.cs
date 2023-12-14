@@ -7,8 +7,8 @@ public class ActivityManager
         _activityList = new List<Activity>();
     
         Running running = new Running("03 Nov 2022", 30, 3.0);
-        Cycling cycling = new Cycling("05 Mar 2023", 50, 8);
-        Swimming swimming = new Swimming("14 Jul 2023", 43, 30);
+        Cycling cycling = new Cycling("05 Mar 2023", 240, 100);
+        Swimming swimming = new Swimming("14 Jul 2023", 60, 30);
 
         _activityList.Add(running);
         _activityList.Add(cycling);
